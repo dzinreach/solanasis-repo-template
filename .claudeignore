@@ -1,0 +1,3 @@
+# Secrets -- don't read .env files (managed by Infisical)
+# Use: secret get KEY -f {folder} --plain
+.env
