@@ -23,3 +23,17 @@ Managed by Infisical -- see `~/.claude/CLAUDE.md` for full commands and fallback
 - AI agents MUST NOT create scripts on-the-fly during execution -- all
   scripts must be pre-created, tested, and verified
 - See `~/.claude/CLAUDE.md` for full pre-flight policy
+
+## Agent Memory Tools
+- If this repo has `.serena/project.yml`, use Serena for symbol overviews,
+  references, implementations, diagnostics, and repo-local memories before
+  broad file reads.
+- For durable cross-repo facts and prior decisions, search/write Graphiti with
+  explicit `group_id` values using only letters, numbers, dashes, and
+  underscores.
+- For large document sets, Coda mirrors, playbooks, generated docs, and
+  transcripts, use Onyx or the relevant document index.
+- Do not use OpenMemory or app-owned vector stores as general agent memory
+  unless a tested repo-specific wrapper exists.
+- Workspace reference:
+  `/home/zasage/_my/docs/agent-memory-tools/CHEATSHEET.md`
