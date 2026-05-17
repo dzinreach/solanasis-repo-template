@@ -47,6 +47,10 @@ Managed by Infisical -- see `~/.claude/CLAUDE.md` for full commands and fallback
   owner lane, explicit write scope, and PR integration to the canonical base.
 
 ## Agent Memory Tools
+- Memory and code-context tools supplement normal code discovery. Use `rg`,
+  globs, direct file reads, compiler diagnostics, and tests as source-of-truth
+  checks; for non-trivial code research, pair exact search with
+  semantic/context search when available.
 - If this repo has `.serena/project.yml`, use Serena for symbol overviews,
   references, implementations, diagnostics, and repo-local memories before
   broad file reads.
@@ -55,6 +59,9 @@ Managed by Infisical -- see `~/.claude/CLAUDE.md` for full commands and fallback
   underscores.
 - For large document sets, Coda mirrors, playbooks, generated docs, and
   transcripts, use Onyx or the relevant document index.
+- Treat Code Context MCP / Claude-Context as optional semantic discovery over
+  an indexed codebase, not memory or proof. If unavailable or stale, continue
+  with `rg`, Serena, and direct reads.
 - Do not use OpenMemory or app-owned vector stores as general agent memory
   unless a tested repo-specific wrapper exists.
 - Workspace reference:
