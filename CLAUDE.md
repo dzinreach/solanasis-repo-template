@@ -3,12 +3,24 @@
 ## Secrets Management
 Managed by Infisical -- see `~/.claude/CLAUDE.md` for full commands and fallback docs.
 - **Run with secrets:** `secret run {FOLDER_NAME} -- <command>`
-- **Get a secret:** `secret get KEY -f {FOLDER_NAME} --plain`
-- **Sync .env (legacy):** `secret sync {REPO_NAME}`
+- **Preferred pattern:** inject secrets with `secret run`; do not print values.
+- **Get a secret:** `secret get KEY -f {FOLDER_NAME} --plain` only when
+  required for an interactive tool that cannot use environment injection. Never
+  paste secret values into chat, tickets, logs, shell history, or docs.
+- **Sync .env (legacy):** `secret sync {REPO_NAME}` only for local legacy
+  workflows that require a file. Never commit `.env` or `.env.*`.
 
 ## Security-First & Privacy-First (Non-Negotiable)
 - All Cloudflare Tunnel routes MUST use OTP authentication (Cloudflare Access)
   by default — configure the Access policy BEFORE creating the tunnel route
+- Baseline policy follows `docs.solanasis.com`: one Access app per tunneled
+  hostname, OTP email auth, approved Solanasis emails
+  (`dmitri@solanasis.com`, `ds@solanasis.com`,
+  `mr.sunshine@solanasis.com`), 24h session, and no extra require/exclude rules
+  unless approved.
+- Tunnel-backed local services bind to `127.0.0.1` by default.
+- Any Cloudflare Access deviation must be recorded in the workspace exception
+  config and service inventory in the same change set.
 - Exceptions require Dmitri's explicit approval:
   - Services with their own authentication (e.g., ERPNext, Baserow login)
   - Public marketing sites (solanasis.com, matchkeyz.io, mrsunshine.me)
@@ -23,6 +35,16 @@ Managed by Infisical -- see `~/.claude/CLAUDE.md` for full commands and fallback
 - AI agents MUST NOT create scripts on-the-fly during execution -- all
   scripts must be pre-created, tested, and verified
 - See `~/.claude/CLAUDE.md` for full pre-flight policy
+
+## Agentic Engineering Doctrine
+- Canonical doctrine:
+  `/home/zasage/_my/_solanasis/solanasis-docs/operations/agentic-engineering-doctrine.md`
+- Parallel development SDLC:
+  `/home/zasage/_my/docs/parallel-development-sdlc.md`
+- New or modified operational scripts must be Python-first, tested, and
+  dry-run/check-only capable when they mutate state.
+- Concurrent branches should use one workstream, one branch, one worktree, one
+  owner lane, explicit write scope, and PR integration to the canonical base.
 
 ## Agent Memory Tools
 - If this repo has `.serena/project.yml`, use Serena for symbol overviews,

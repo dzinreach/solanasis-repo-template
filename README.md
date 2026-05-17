@@ -19,3 +19,10 @@ This project follows Solanasis security-first, privacy-first principles:
 - No service is exposed without protection — configure Cloudflare Access BEFORE creating tunnels
 - Credentials managed via Infisical — never hardcoded
 - See `CLAUDE.md` for full security policy
+
+## Agentic Engineering
+
+This repo inherits Solanasis agentic engineering doctrine and the parallel
+development SDLC from its `CLAUDE.md` and `AGENTS.md` files. For concurrent
+work, use short-lived worktree branches and integrate through PRs to the
+canonical base branch.
