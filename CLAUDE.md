@@ -65,4 +65,6 @@ Managed by Infisical -- see `~/.claude/CLAUDE.md` for full commands and fallback
 - Do not use OpenMemory or app-owned vector stores as general agent memory
   unless a tested repo-specific wrapper exists.
 - Workspace reference:
+  `/home/zasage/_my/claude-code-config/global-claude-md/references/agent-memory-and-code-context-routing.md`
+- Workspace evidence and quick commands:
   `/home/zasage/_my/docs/agent-memory-tools/CHEATSHEET.md`
